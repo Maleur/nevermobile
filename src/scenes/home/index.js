@@ -4,14 +4,14 @@ import Navigation from '../../components/organisms/navigation'
 import ScreenDimensionsData from '../../helpers/screenDimensionsData'
 
 const Home = () => {
-  const screenData = ScreenDimensionsData();
+  const isLandscape = ScreenDimensionsData().isLandscape;
 
   return (
-    <View style={[styles.container, screenData.isLandscape && styles.containerLandscape]}>
-      <View style={[styles.videoWrapper, screenData.isLandscape && styles.videoWrappperLandscape]}>
+    <View style={[styles.container, isLandscape && styles.containerLandscape]}>
+      <View style={[styles.videoWrapper, isLandscape && styles.videoWrappperLandscape]}>
         <Text>I am a video content</Text>
       </View>
-      <View style={[styles.navigationWrapper, screenData.isLandscape && styles.navigationWrapperLandscape]}>
+      <View style={[styles.navigationWrapper, isLandscape && styles.navigationWrapperLandscape]}>
         <Navigation />
       </View>
     </View>

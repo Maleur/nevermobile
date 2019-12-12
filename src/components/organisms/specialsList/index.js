@@ -11,8 +11,8 @@ const SpecialistList = () => {
       <Header title={'Specials'}/>
       <ScrollView contentContainerStyle={styles.container} horizontal={true}>
         {
-          specials.map((value) => {
-            return <SpecialChannel name={value.name} uri={value.icon} />
+          specials.map((value, key) => {
+            return <SpecialChannel name={value.name} uri={value.icon} key={key} />
           })
         }
       </ScrollView>

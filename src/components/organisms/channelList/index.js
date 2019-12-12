@@ -15,10 +15,10 @@ const ChannelList = () => {
       <ScrollView style={styles.scrollContainer}>
         <View style={styles.contentContainer}>
           {
-            channels.map((value) => {
+            channels.map((value, key) => {
               return (
-                <View style={[styles.channelContainer, {width: calc_width}]}>
-                  <Channel name={value.name} uri={value.icon}/>
+                <View style={[styles.channelContainer, { width: calc_width }]} key={key} >
+                  <Channel name={value.name} uri={value.icon} />
                 </View>
               )
             })
