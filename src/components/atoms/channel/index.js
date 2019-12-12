@@ -1,0 +1,37 @@
+import React from 'react'
+import { StyleSheet, Text, View, Image } from 'react-native';
+import theme from '../../../assets/styles/theme.style'
+
+const Channel = (props) => {
+  return (
+    <View style={styles.container}>
+      <Image style={styles.image} source={{uri: props.uri}}></Image>
+      <View>
+        <Text style={styles.title}>{props.name}</Text>
+      </View>
+    </View>
+  )
+}
+
+const styles = StyleSheet.create({
+  container: {
+    margin: 8,
+    padding: 8,
+    backgroundColor: theme.GREY_600,
+    width: 110,
+    height: 110,
+    borderRadius: 4,
+    overflow: 'hidden',
+    justifyContent: 'space-between'
+  },
+  title: {
+    color: theme.GREY_200,
+    fontSize: 16,
+  },
+  image: {
+    width: 26,
+    height: 26,
+  }
+})
+
+export default Channel
