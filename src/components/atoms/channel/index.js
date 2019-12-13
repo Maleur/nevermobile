@@ -7,7 +7,8 @@ const Channel = (props) => {
     <View style={[styles.container, props.isActive && styles.containerActive]}>
       <Image style={styles.image} source={{uri: props.uri}}></Image>
       <View>
-        <Text style={styles.title}>{props.name}</Text>
+        <Text numberOfLines={2} style={styles.title}>{props.name}</Text>
+        {props.isActive && <Text style={styles.subtitle}>All Watched</Text>}
       </View>
     </View>
   )
@@ -31,7 +32,11 @@ const styles = StyleSheet.create({
   },
   title: {
     color: theme.GREY_200,
-    fontSize: 16,
+    fontSize: 16
+  },
+  subtitle: {
+    color: theme.GREY_300,
+    fontSize: 12
   },
   image: {
     width: 26,
