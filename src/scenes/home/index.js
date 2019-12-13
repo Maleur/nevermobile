@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, View,Text } from 'react-native';
+import { StyleSheet, View, SafeAreaView } from 'react-native';
 import ChannelList from '../../components/organisms/channelList'
 import SpecialsList from '../../components/organisms/specialsList'
 import ScreenDimensionsData from '../../helpers/screenDimensionsData'
@@ -14,7 +14,7 @@ const Home = () => {
   function updateActiveChannel(channel, playlist) { setActiveChannel(channel); videoList = playlist }
 
   return (
-    <View style={[styles.container, isLandscape && styles.containerLandscape]}>
+    <SafeAreaView style={[styles.container, isLandscape && styles.containerLandscape]}>
       <View style={[styles.videoWrapper, isLandscape && styles.videoWrappperLandscape]}>
         <YouTube apiKey={REACT_APP_YOUTUBE_API} videoId={videoList[0]} videoIds={videoList} style={{ alignSelf : 'stretch', flex: 1 }}/>
       </View>
@@ -22,7 +22,7 @@ const Home = () => {
         <SpecialsList activeChannel={activeChannel} updateActiveChannel={updateActiveChannel} />
         <ChannelList activeChannel={activeChannel} updateActiveChannel={updateActiveChannel} />
       </View>
-    </View>
+    </SafeAreaView>
   )
 }
 

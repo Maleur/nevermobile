@@ -17,7 +17,7 @@ const SpecialistList = ({activeChannel, updateActiveChannel}) => {
           specials.map((value) => {
             const isActive = channel_id == value.id && channel_type == 'specials'
             return (
-              <View key={value.id} onStartShouldSetResponder={() => updateActiveChannel(['specials', value.id])}>
+              <View key={value.id} onStartShouldSetResponder={() => updateActiveChannel(['specials', value.id], value.playlist)}>
                 <SpecialChannel name={value.name} uri={value.icon} style={{backgroundColor: 'red'}} isActive={isActive} />
               </View>
             )

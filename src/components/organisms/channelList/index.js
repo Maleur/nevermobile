@@ -7,7 +7,7 @@ import channels from '../../../assets/samples/channelData'
 
 const ChannelList = ({activeChannel, updateActiveChannel}) => {
   const containerWidth = Dimensions.get('window').width;
-  const divisor = Math.floor(containerWidth / 126);
+  const divisor = Math.floor(containerWidth / 110);
   const calc_width = (containerWidth - 16) / divisor
 
   const channel_type = activeChannel[0]
