@@ -11,7 +11,7 @@ export default [
     name: 'Learn Something',
     icon:
     'https://neverthink.tv/assets/images/fde01ee47dc02d83892c35c22f2efd81f52c37edc4f3651be40094a115c812fd.png',
-    playlist: ['FOH3ZOMBwhY', 'ErfEnD2WA3A', 'JZnlJ2upJv8', 'Km8kIX-8hVs']
+    playlist: ['gey-oGUFiJo', 'zVBkjMbF4Z4', 'cc0dqW2HCRc']
   },
   {
     id: 3,
@@ -25,27 +25,27 @@ export default [
     name: 'WTF',
     icon:
     'https://neverthink.tv/assets/images/fde01ee47dc02d83892c35c22f2efd81f52c37edc4f3651be40094a115c812fd.png',
-    playlist: ['FOH3ZOMBwhY', 'ErfEnD2WA3A', 'JZnlJ2upJv8', 'Km8kIX-8hVs']
+    playlist: ['ErfEnD2WA3A', 'JZnlJ2upJv8', 'Km8kIX-8hVs']
   },
   {
     id: 5,
     name: 'Instant Regret',
     icon:
     'https://neverthink.tv/assets/images/fde01ee47dc02d83892c35c22f2efd81f52c37edc4f3651be40094a115c812fd.png',
-    playlist: ['FOH3ZOMBwhY', 'ErfEnD2WA3A', 'JZnlJ2upJv8', 'Km8kIX-8hVs']
+    playlist: ['B_3pGTXHlTo', 'pbj-gzf9OeA', 'T44ccJQvlx8', '82pVND3efEc']
   },
   {
     id: 6,
     name: 'Perfectly Cut Screams',
     icon:
     'https://neverthink.tv/assets/images/fde01ee47dc02d83892c35c22f2efd81f52c37edc4f3651be40094a115c812fd.png',
-    playlist: ['FOH3ZOMBwhY', 'ErfEnD2WA3A', 'JZnlJ2upJv8', 'Km8kIX-8hVs']
+    playlist: ['yJ0ebcco2I8', 'jfGIgy43vxA', '4bHLAEXADII', 'sl43b5ZopiA']
   },
   {
     id: 7,
     name: 'Unusual Videos',
     icon:
     'https://neverthink.tv/assets/images/fde01ee47dc02d83892c35c22f2efd81f52c37edc4f3651be40094a115c812fd.png',
-    playlist: ['FOH3ZOMBwhY', 'ErfEnD2WA3A', 'JZnlJ2upJv8', 'Km8kIX-8hVs']
+    playlist: ['Rpwlpb9NpkU', 'OexbtpTSyJQ', 'lS48Lkdj8pA', 'ZpZAALO7RjQ']
   },
 ]

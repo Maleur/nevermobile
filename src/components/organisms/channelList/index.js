@@ -22,7 +22,7 @@ const ChannelList = ({activeChannel, updateActiveChannel}) => {
             channels.map((value) => {
               const isActive = channel_id == value.id && channel_type == 'default'
               return (
-                <View style={[styles.channelContainer, {width: calc_width}]} key={value.id} onStartShouldSetResponder={() => updateActiveChannel(['default', value.id])} >
+                <View style={[styles.channelContainer, {width: calc_width}]} key={value.id} onStartShouldSetResponder={() => updateActiveChannel(['default', value.id], value.playlist)} >
                   <Channel name={value.name} uri={value.icon} isActive={isActive} />
                 </View>
               )

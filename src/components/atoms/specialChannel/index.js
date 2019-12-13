@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     borderColor: 'transparent'
   },
   iconActive: {
-    borderColor: theme.PINK_500
+    borderColor: theme.PRIMARY_500
   },
   title: {
     color: theme.GREY_200,
