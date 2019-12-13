@@ -1,10 +1,13 @@
 import React from 'react';
-import {View,Text} from 'react-native';
+import { StatusBar, View } from 'react-native';
 import Home from './scenes/home'
 
 const App: () => React$Node = () => {
   return (
-    <Home />
+    <View style={{flex: 1}}>
+      <StatusBar barStyle='light-content'/>
+      <Home />
+    </View>
   )
 }
 
