@@ -30,7 +30,6 @@ const SpecialistList = ({activeChannel, updateActiveChannel}) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: theme.GREY_800,
     paddingBottom: 16
   },
 })

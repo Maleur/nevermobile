@@ -38,7 +38,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   videoWrapper: {
-    backgroundColor: 'red',
     flexGrow: 1,
     flex: 1
   },
@@ -48,7 +47,6 @@ const styles = StyleSheet.create({
   navigationWrapper: {
     flexGrow: 2,
     flex: 1,
-    backgroundColor: 'green',
   },
   navigationWrapperLandscape: {
     flexGrow: 1,

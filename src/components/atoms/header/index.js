@@ -12,7 +12,6 @@ const Header = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: theme.GREY_800,
     padding: 16,
     paddingBottom: 4
   },

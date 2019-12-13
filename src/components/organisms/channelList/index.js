@@ -33,11 +33,9 @@ const ChannelList = ({activeChannel, updateActiveChannel}) => {
 
 const styles = StyleSheet.create({
   scrollContainer: {
-    backgroundColor: theme.GREY_800,
     flex: 1,
   },
   contentContainer: {
-    backgroundColor: theme.GREY_800,
     padding: 8,
     flexDirection: 'row',
     flexWrap: 'wrap',
