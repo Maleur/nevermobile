@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dimensions, StyleSheet, View, ScrollView } from 'react-native';
+import { Dimensions, StyleSheet, View, ScrollView, TouchableOpacity } from 'react-native';
 import Channel from '../../atoms/channel'
 import Header from '../../atoms/header'
 import theme from '../../../assets/styles/theme.style'
@@ -22,9 +22,10 @@ const ChannelList = ({activeChannel, updateActiveChannel}) => {
             channels.map((value) => {
               const isActive = channel_id == value.id && channel_type == 'default'
               return (
-                <View style={styles.channelContainer} key={value.id} onStartShouldSetResponder={() => updateActiveChannel(['default', value.id], value.playlist)} >
+                <TouchableOpacity activeOpacity={0.95} style={styles.channelContainer} onPress={() => updateActiveChannel(['default', value.id], value.playlist)} key={value.id}>
                   <Channel name={value.name} uri={value.icon} isActive={isActive} />
-                </View>
+
+                </TouchableOpacity>
               )
             })
           }

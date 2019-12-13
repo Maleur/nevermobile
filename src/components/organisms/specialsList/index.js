@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
 import SpecialChannel from '../../atoms/specialChannel'
 import Header from '../../atoms/header'
 import theme from '../../../assets/styles/theme.style'
@@ -17,9 +17,9 @@ const SpecialistList = ({activeChannel, updateActiveChannel}) => {
           specials.map((value) => {
             const isActive = channel_id == value.id && channel_type == 'specials'
             return (
-              <View key={value.id} onStartShouldSetResponder={() => updateActiveChannel(['specials', value.id], value.playlist)}>
+              <TouchableOpacity activeOpacity={0.95} key={value.id} onPress={() => updateActiveChannel(['specials', value.id], value.playlist)}>
                 <SpecialChannel name={value.name} uri={value.icon} style={{backgroundColor: 'red'}} isActive={isActive} />
-              </View>
+              </TouchableOpacity>
             )
           })
         }
@@ -31,7 +31,6 @@ const SpecialistList = ({activeChannel, updateActiveChannel}) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.GREY_800,
-    backgroundColor: 'blue',
     paddingBottom: 16
   },
 })
