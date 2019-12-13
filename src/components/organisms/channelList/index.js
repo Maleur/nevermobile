@@ -1,15 +1,11 @@
 import React from 'react'
-import { Dimensions, StyleSheet, View, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, ScrollView, TouchableOpacity } from 'react-native';
 import Channel from '../../atoms/channel'
 import Header from '../../atoms/header'
 import theme from '../../../assets/styles/theme.style'
 import channels from '../../../assets/samples/channelData'
 
 const ChannelList = ({activeChannel, updateActiveChannel}) => {
-  const containerWidth = Dimensions.get('window').width;
-  const divisor = Math.floor(containerWidth / 110);
-  const calc_width = (containerWidth - 16) / divisor
-
   const channel_type = activeChannel[0]
   const channel_id = activeChannel[1]
 
@@ -41,7 +37,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   contentContainer: {
-    backgroundColor: 'coral',
+    backgroundColor: theme.GREY_800,
     padding: 8,
     flexDirection: 'row',
     flexWrap: 'wrap',
