@@ -5,14 +5,22 @@ import Header from '../../atoms/header'
 import theme from '../../../assets/styles/theme.style'
 import specials from '../../../assets/samples/specialData'
 
-const SpecialistList = () => {
+const SpecialistList = ({activeChannel, updateActiveChannel}) => {
+  const channel_type = activeChannel[0]
+  const channel_id = activeChannel[1]
+
   return (
     <View>
       <Header title={'Specials'}/>
       <ScrollView contentContainerStyle={styles.container} horizontal={true}>
         {
-          specials.map((value, key) => {
-            return <SpecialChannel name={value.name} uri={value.icon} key={key} />
+          specials.map((value) => {
+            const isActive = channel_id == value.id && channel_type == 'specials'
+            return (
+              <View key={value.id} onStartShouldSetResponder={() => updateActiveChannel(['specials', value.id])}>
+                <SpecialChannel name={value.name} uri={value.icon} style={{backgroundColor: 'red'}} isActive={isActive} />
+              </View>
+            )
           })
         }
       </ScrollView>

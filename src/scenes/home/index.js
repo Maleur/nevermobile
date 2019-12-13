@@ -1,18 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, View,Text } from 'react-native';
-import Navigation from '../../components/organisms/navigation'
+import ChannelList from '../../components/organisms/channelList'
+import SpecialsList from '../../components/organisms/specialsList'
 import ScreenDimensionsData from '../../helpers/screenDimensionsData'
+import YouTube from 'react-native-youtube';
+import { REACT_APP_YOUTUBE_API } from 'react-native-dotenv'
 
 const Home = () => {
   const isLandscape = ScreenDimensionsData().isLandscape;
 
+  const [activeChannel, setActiveChannel] = useState(['default', 1])
+
+  function updateActiveChannel(value) { console.log('I happened'); setActiveChannel(value) }
+
   return (
     <View style={[styles.container, isLandscape && styles.containerLandscape]}>
       <View style={[styles.videoWrapper, isLandscape && styles.videoWrappperLandscape]}>
-        <Text>I am a video content</Text>
+        <YouTube apiKey={REACT_APP_YOUTUBE_API} videoId='jM0GePXOdT0' style={{ alignSelf : 'stretch', flex: 1 }}/>
       </View>
       <View style={[styles.navigationWrapper, isLandscape && styles.navigationWrapperLandscape]}>
-        <Navigation />
+        <SpecialsList activeChannel={activeChannel} updateActiveChannel={updateActiveChannel} />
+        <ChannelList activeChannel={activeChannel} updateActiveChannel={updateActiveChannel} />
       </View>
     </View>
   )

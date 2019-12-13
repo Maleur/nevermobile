@@ -5,7 +5,7 @@ import theme from '../../../assets/styles/theme.style'
 const SpecialChannel = (props) => {
   return (
     <View style={styles.container}>
-      <View style={styles.icon}>
+      <View style={[styles.icon, props.isActive && styles.iconActive]}>
         <Image style={styles.image} source={{uri: props.uri}}></Image>
       </View>
       <View>
@@ -33,7 +33,12 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     backgroundColor: theme.GREY_600,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: 'transparent'
+  },
+  iconActive: {
+    borderColor: theme.PINK_500
   },
   title: {
     color: theme.GREY_200,
