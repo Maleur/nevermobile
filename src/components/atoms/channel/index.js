@@ -16,7 +16,7 @@ const Channel = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    margin: 8,
+    margin: 4,
     padding: 8,
     backgroundColor: theme.GREY_600,
     width: 110,

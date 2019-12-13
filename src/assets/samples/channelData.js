@@ -40,12 +40,5 @@ export default [
     icon:
     'https://neverthink.tv/assets/images/fde01ee47dc02d83892c35c22f2efd81f52c37edc4f3651be40094a115c812fd.png',
     playlist: ['yJ0ebcco2I8', 'jfGIgy43vxA', '4bHLAEXADII', 'sl43b5ZopiA']
-  },
-  {
-    id: 7,
-    name: 'Unusual Videos',
-    icon:
-    'https://neverthink.tv/assets/images/fde01ee47dc02d83892c35c22f2efd81f52c37edc4f3651be40094a115c812fd.png',
-    playlist: ['Rpwlpb9NpkU', 'OexbtpTSyJQ', 'lS48Lkdj8pA', 'ZpZAALO7RjQ']
-  },
+  }
 ]

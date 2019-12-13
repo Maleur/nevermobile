@@ -22,7 +22,7 @@ const ChannelList = ({activeChannel, updateActiveChannel}) => {
             channels.map((value) => {
               const isActive = channel_id == value.id && channel_type == 'default'
               return (
-                <View style={[styles.channelContainer, {width: calc_width}]} key={value.id} onStartShouldSetResponder={() => updateActiveChannel(['default', value.id], value.playlist)} >
+                <View style={styles.channelContainer} key={value.id} onStartShouldSetResponder={() => updateActiveChannel(['default', value.id], value.playlist)} >
                   <Channel name={value.name} uri={value.icon} isActive={isActive} />
                 </View>
               )
@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
     padding: 8,
     flexDirection: 'row',
     flexWrap: 'wrap',
+    justifyContent: 'center'
   },
   channelContainer: {
     alignItems: 'center'

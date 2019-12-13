@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
   navigationWrapperLandscape: {
     flexGrow: 1,
-    minWidth: 16
+    minWidth: 42
   }
 })
 
