@@ -5,7 +5,7 @@ import Header from '../../atoms/header'
 import theme from '../../../assets/styles/theme.style'
 import channels from '../../../assets/samples/channelData'
 
-const ChannelList = ({activeChannel, updateActiveChannel}) => {
+const ChannelList = ({seenVideos, activeChannel, updateActiveChannel}) => {
   const channel_type = activeChannel[0]
   const channel_id = activeChannel[1]
 
@@ -17,10 +17,12 @@ const ChannelList = ({activeChannel, updateActiveChannel}) => {
           {
             channels.map((value) => {
               const isActive = channel_id == value.id && channel_type == 'default'
+              const unseenVideos = value.playlist.filter(video => !seenVideos.includes(video))
+              const isSeen = unseenVideos.length == 0
+
               return (
                 <TouchableOpacity activeOpacity={0.95} style={styles.channelContainer} onPress={() => updateActiveChannel(['default', value.id], value.playlist)} key={value.id}>
-                  <Channel name={value.name} uri={value.icon} isActive={isActive} />
-
+                  <Channel name={value.name} uri={value.icon} isActive={isActive} isSeen={isSeen} />
                 </TouchableOpacity>
               )
             })

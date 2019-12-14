@@ -4,11 +4,11 @@ import theme from '../../../assets/styles/theme.style'
 
 const Channel = (props) => {
   return (
-    <View style={[styles.container, props.isActive && styles.containerActive]}>
+    <View style={[styles.container, props.isSeen && styles.containerSeen, props.isActive && styles.containerActive]}>
       <Image style={styles.image} source={{uri: props.uri}}></Image>
       <View>
         <Text numberOfLines={2} style={styles.title}>{props.name}</Text>
-        {props.isActive && <Text style={styles.subtitle}>All Watched</Text>}
+        {props.isSeen && <Text style={styles.subtitle}>All Watched</Text>}
       </View>
     </View>
   )
@@ -26,6 +26,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     borderWidth: 2,
     borderColor: 'transparent'
+  },
+  containerSeen: {
+    borderColor: theme.GREY_600,
+    backgroundColor: theme.GREY_800
   },
   containerActive: {
     borderColor: theme.PRIMARY_500,

@@ -15,14 +15,15 @@ const Home = () => {
 
   function updateActiveChannel(channel, playlist) { setActiveChannel(channel); setVideoList(playlist) }
 
+  const watchedData = ['B_3pGTXHlTo', 'pbj-gzf9OeA', 'T44ccJQvlx8', '82pVND3efEc', 's-v3dXosB_4', 'P2ppuFwPt6A', 'BfHIw2iFvR4']
   return (
     <SafeAreaView style={[styles.container, isLandscape && styles.containerLandscape]}>
       <View style={[styles.videoWrapper, isLandscape && styles.videoWrappperLandscape]}>
         <YouTube loop play apiKey={REACT_APP_YOUTUBE_API} videoId={videoList[0]} videoIds={videoList} style={{ alignSelf : 'stretch', flex: 1 }} origin='http://www.youtube.com' />
       </View>
       <View style={[styles.navigationWrapper, isLandscape && styles.navigationWrapperLandscape]}>
-        <SpecialsList activeChannel={activeChannel} updateActiveChannel={updateActiveChannel} />
-        <ChannelList activeChannel={activeChannel} updateActiveChannel={updateActiveChannel} />
+        <SpecialsList seenVideos={watchedData} activeChannel={activeChannel} updateActiveChannel={updateActiveChannel} />
+        <ChannelList seenVideos={watchedData} activeChannel={activeChannel} updateActiveChannel={updateActiveChannel} />
       </View>
     </SafeAreaView>
   )
