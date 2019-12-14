@@ -16,7 +16,7 @@ const Badge = (props) => {
 
   return (
     <View style={[styles.container, props.isActive && styles.containerActive]}>
-      <View style={[styles.badge, props.isActive && styles.badgeActive]}>
+      <View style={[styles.badge, props.isSeen && styles.badgeSeen, props.isActive && styles.badgeActive]}>
         {props.isActive && badgeContent(props)}
       </View>
     </View>
@@ -45,9 +45,15 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: theme.GREY_800,
   },
+  badgeSeen: {
+    backgroundColor: 'transparent',
+    borderColor: 'transparent'
+  },
   badgeActive: {
     height: 24,
     width: 24,
+    backgroundColor: theme.PRIMARY_500,
+    borderColor: theme.GREY_800,
   },
   badgeText: {
     color: theme.GREY_100,
