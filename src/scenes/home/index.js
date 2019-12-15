@@ -6,7 +6,6 @@ import ScreenDimensionsData from '../../helpers/screenDimensionsData'
 import YouTube from 'react-native-youtube';
 import channels from '../../assets/samples/channelData'
 import theme from '../../assets/styles/theme.style'
-import { REACT_APP_YOUTUBE_API } from 'react-native-dotenv'
 import AsyncStorage from '@react-native-community/async-storage';
 
 const Home = () => {
@@ -71,7 +70,7 @@ const Home = () => {
   return (
     <SafeAreaView style={[styles.container, isLandscape && styles.containerLandscape]}>
       <View style={[styles.videoWrapper, isLandscape && styles.videoWrappperLandscape]}>
-        <YouTube loop play apiKey={REACT_APP_YOUTUBE_API} onChangeState={(e) => updateSeenVideos(e)} videoIds={playbackList} style={{ alignSelf : 'stretch', flex: 1 }} origin='http://www.youtube.com' ref={youtubeRef} />
+        <YouTube loop play onChangeState={(e) => updateSeenVideos(e)} videoIds={playbackList} style={{ alignSelf : 'stretch', flex: 1 }} origin='http://www.youtube.com' ref={youtubeRef} />
       </View>
       <View style={[styles.navigationWrapper, isLandscape && styles.navigationWrapperLandscape]}>
         <SpecialsList seenVideos={seenData} activeChannel={activeChannel} updateActiveChannel={updateActiveChannel} />
