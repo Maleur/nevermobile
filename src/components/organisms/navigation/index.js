@@ -14,8 +14,7 @@ const Navigation = () => {
 
 const styles = StyleSheet.create({
   navigationWrapper: {
-    flexGrow: 1,
-    backgroundColor: 'green',
+    flexGrow: 1
   },
 })
 

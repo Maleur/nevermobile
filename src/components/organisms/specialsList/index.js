@@ -10,9 +10,9 @@ const SpecialistList = ({seenVideos, activeChannel, updateActiveChannel}) => {
   const channel_id = activeChannel[1]
 
   return (
-    <View>
+    <View style={styles.container}>
       <Header title={'Specials'}/>
-      <ScrollView contentContainerStyle={styles.container} horizontal={true}>
+      <ScrollView contentContainerStyle={styles.scrollContainer} horizontal={true}>
         {
           specials.map((value) => {
             const isActive = channel_id == value.id && channel_type == 'specials'
@@ -21,7 +21,7 @@ const SpecialistList = ({seenVideos, activeChannel, updateActiveChannel}) => {
 
             return (
               <TouchableOpacity activeOpacity={0.95} key={value.id} onPress={() => updateActiveChannel(['specials', value.id], value.playlist)}>
-                <SpecialChannel name={value.name} uri={value.icon} style={{backgroundColor: 'red'}} isActive={isActive} isSeen={isSeen} unseenCount={unseenVideos.length} />
+                <SpecialChannel name={value.name} uri={value.icon} isActive={isActive} isSeen={isSeen} unseenCount={unseenVideos.length} />
               </TouchableOpacity>
             )
           })
@@ -33,6 +33,10 @@ const SpecialistList = ({seenVideos, activeChannel, updateActiveChannel}) => {
 
 const styles = StyleSheet.create({
   container: {
+    borderBottomWidth: 1,
+    borderBottomColor: theme.GREY_600
+  },
+  scrollContainer: {
     paddingBottom: 16
   },
 })
