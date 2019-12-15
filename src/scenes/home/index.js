@@ -18,6 +18,7 @@ const Home = () => {
 
   useEffect(() => {
     updateSeenData();
+    updatePlaybackList(channels[0].playlist)
   }, []);
 
   async function updateSeenData() {
