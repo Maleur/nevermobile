@@ -11,15 +11,34 @@ import { REACT_APP_YOUTUBE_API } from 'react-native-dotenv'
 const Home = () => {
   const isLandscape = ScreenDimensionsData().isLandscape;
   const [activeChannel, setActiveChannel] = useState(['default', channels[0].id])
-  const [videoList, setVideoList] = useState(channels[0].playlist)
+  const [channelPlaylist, setChannelPlaylist] = useState(channels[0].playlist)
+  const [playbackList, setPlaybackList] = useState(channels[0].playlist)
 
-  function updateActiveChannel(channel, playlist) { setActiveChannel(channel); setVideoList(playlist) }
+  function updateActiveChannel(channel, playlist) {
+    setActiveChannel(channel);
+    console.log('channel is =>', channel)
+    console.log('acive channel is =>', activeChannel)
+    setChannelPlaylist(playlist);
+    updatePlaybackList(playlist);
+  }
 
-  const watchedData = ['B_3pGTXHlTo', 'pbj-gzf9OeA', 'T44ccJQvlx8', '82pVND3efEc', 's-v3dXosB_4', 'P2ppuFwPt6A', 'BfHIw2iFvR4']
+  function updatePlaybackList(playlist) {
+    const unseenVideos = playlist.filter(video => !watchedData.includes(video))
+    console.log('unseen videos=>', unseenVideos)
+    playbackPlaylist = unseenVideos.concat(playlist)
+    console.log('playbackPlaylist=>', playbackPlaylist)
+    setPlaybackList(playbackPlaylist)
+  }
+
+  function updateSeenVideos(e) {
+    console.log('video state changed', e);
+  }
+
+  const watchedData = ['B_3pGTXHlTo', 'pbj-gzf9OeA', 'T44ccJQvlx8', '82pVND3efEc', 's-v3dXosB_4', 'P2ppuFwPt6A', 'BfHIw2iFvR4', 'gey-oGUFiJo']
   return (
     <SafeAreaView style={[styles.container, isLandscape && styles.containerLandscape]}>
       <View style={[styles.videoWrapper, isLandscape && styles.videoWrappperLandscape]}>
-        <YouTube loop play apiKey={REACT_APP_YOUTUBE_API} videoId={videoList[0]} videoIds={videoList} style={{ alignSelf : 'stretch', flex: 1 }} origin='http://www.youtube.com' />
+        <YouTube loop play apiKey={REACT_APP_YOUTUBE_API} onChangeState={(e) => updateSeenVideos(e)} videoIds={playbackList} style={{ alignSelf : 'stretch', flex: 1 }} origin='http://www.youtube.com' />
       </View>
       <View style={[styles.navigationWrapper, isLandscape && styles.navigationWrapperLandscape]}>
         <SpecialsList seenVideos={watchedData} activeChannel={activeChannel} updateActiveChannel={updateActiveChannel} />
