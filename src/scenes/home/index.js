@@ -67,8 +67,6 @@ const Home = () => {
     return AsyncStorage.getItem('@seenVideos')
   }
 
-  const watchedData = ['B_3pGTXHlTo', 'pbj-gzf9OeA', 'T44ccJQvlx8', '82pVND3efEc', 's-v3dXosB_4', 'P2ppuFwPt6A', 'BfHIw2iFvR4', 'gey-oGUFiJo']
-
   return (
     <SafeAreaView style={[styles.container, isLandscape && styles.containerLandscape]}>
       <View style={[styles.videoWrapper, isLandscape && styles.videoWrappperLandscape]}>

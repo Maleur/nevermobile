@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, ScrollView, TouchableOpacity } from 'react-native';
 import SpecialChannel from '../../atoms/specialChannel'
 import Header from '../../atoms/header'
 import theme from '../../../assets/styles/theme.style'
