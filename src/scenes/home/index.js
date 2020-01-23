@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { StyleSheet, View, SafeAreaView } from 'react-native';
-import ChannelList from '../../components/organisms/channelList'
-import SpecialsList from '../../components/organisms/specialsList'
+import { ChannelList } from '../../components/organisms/channelList'
+import { SpecialsList } from '../../components/organisms/specialsList'
 import ScreenDimensionsData from '../../helpers/screenDimensionsData'
 import YouTube from 'react-native-youtube';
 import channels from '../../assets/samples/channelData'
@@ -10,19 +10,21 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 const Home = () => {
   const isLandscape = ScreenDimensionsData().isLandscape;
-  const [activeChannel, setActiveChannel] = useState(['default', channels[0].id])
-  const [playbackList, setPlaybackList] = useState(channels[0].playlist)
-  const [seenData, setSeenData] = useState([])
-  const youtubeRef = useRef(null)
+  const [activeChannel, setActiveChannel] = useState(['default', channels[0].id]);
+  const [playbackList, setPlaybackList] = useState(channels[0].playlist);
+  const [seenData, setSeenData] = useState([]);
+  const youtubeRef = useRef(null);
 
   useEffect(() => {
     updateSeenData();
-    updatePlaybackList(channels[0].playlist)
+    updatePlaybackList(channels[0].playlist);
   }, []);
 
   async function updateSeenData() {
-    const seenVideos = await getVideoCookies()
-    if (seenVideos !== null) { setSeenData(seenVideos.split(',')); }
+    const seenVideos = await getVideoCookies();
+    if (seenVideos !== null) { 
+      setSeenData(seenVideos.split(','));
+    }
   }
 
   function updateActiveChannel(channel, playlist) {
@@ -31,24 +33,24 @@ const Home = () => {
   }
 
   async function updatePlaybackList(playlist) {
-    const seenVideos = await getVideoCookies()
-    const unseenVideos = playlist.filter(video => !seenVideos.includes(video))
-    const playbackPlaylist = unseenVideos.concat(playlist)
-    setPlaybackList(playbackPlaylist)
+    const seenVideos = await getVideoCookies();
+    const unseenVideos = playlist.filter(video => !seenVideos.includes(video));
+    const playbackPlaylist = unseenVideos.concat(playlist);
+    setPlaybackList(playbackPlaylist);
   }
 
   async function updateSeenVideos(e) {
     if (e.state === 'playing') {
-      const index = await getVideoIndex()
-      const videoId = playbackList[index]
-      const seenVideos = await getVideoCookies()
+      const index = await getVideoIndex();
+      const videoId = playbackList[index];
+      const seenVideos = await getVideoCookies();
 
       if (seenVideos === null) {
-        newCookie = videoId
-        await updateVideoCookies(newCookie)
+        newCookie = videoId;
+        await updateVideoCookies(newCookie);
       } else if (!seenVideos.includes(videoId)) {
-        newCookie = seenVideos.concat(',', videoId)
-        await updateVideoCookies(newCookie)
+        newCookie = seenVideos.concat(',', videoId);
+        await updateVideoCookies(newCookie);
       }
 
       await updateSeenData()
@@ -56,15 +58,15 @@ const Home = () => {
   }
 
   async function getVideoIndex() {
-    return youtubeRef.current.getVideosIndex()
+    return youtubeRef.current.getVideosIndex();
   }
 
   async function updateVideoCookies(value) {
-    return AsyncStorage.setItem('@seenVideos', value)
+    return AsyncStorage.setItem('@seenVideos', value);
   }
 
   async function getVideoCookies() {
-    return AsyncStorage.getItem('@seenVideos')
+    return AsyncStorage.getItem('@seenVideos');
   }
 
   return (

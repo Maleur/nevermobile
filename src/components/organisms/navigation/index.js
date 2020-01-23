@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native';
-import ChannelList from '../channelList'
-import SpecialsList from '../specialsList'
+import { ChannelList } from '../channelList'
+import { SpecialsList } from '../specialsList'
 
 const Navigation = () => {
   return (

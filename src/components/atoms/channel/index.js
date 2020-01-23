@@ -2,13 +2,17 @@ import React from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native';
 import theme from '../../../assets/styles/theme.style'
 
-const Channel = (props) => {
+export const Channel = (props) => {
+  const { isSeen, isActive, uri, name } = props;
+
   return (
-    <View style={[styles.container, props.isSeen && styles.containerSeen, props.isActive && styles.containerActive]}>
-      <Image style={styles.image} source={{uri: props.uri}}></Image>
+    <View style={[styles.container, isSeen && styles.containerSeen, isActive && styles.containerActive]}>
+      <Image style={styles.image} source={{uri: uri}}></Image>
       <View>
-        <Text numberOfLines={2} style={styles.title}>{props.name}</Text>
-        {props.isSeen && <Text style={styles.subtitle}>All Watched</Text>}
+        <Text numberOfLines={2} style={styles.title}>{name}</Text>
+        {
+          isSeen && <Text style={styles.subtitle}>All Watched</Text>
+        }
       </View>
     </View>
   )
@@ -47,5 +51,3 @@ const styles = StyleSheet.create({
     height: 26,
   }
 })
-
-export default Channel

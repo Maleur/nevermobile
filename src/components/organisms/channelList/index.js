@@ -1,13 +1,12 @@
 import React from 'react'
 import { StyleSheet, View, ScrollView, TouchableOpacity } from 'react-native';
-import Channel from '../../atoms/channel'
-import Header from '../../atoms/header'
+import { Channel } from '../../atoms/channel'
+import { Header } from '../../atoms/header'
 import theme from '../../../assets/styles/theme.style'
 import channels from '../../../assets/samples/channelData'
 
-const ChannelList = ({seenVideos, activeChannel, updateActiveChannel}) => {
-  const channel_type = activeChannel[0]
-  const channel_id = activeChannel[1]
+export const ChannelList = ({seenVideos, activeChannel, updateActiveChannel}) => {
+  const [channel_type, channel_id] = activeChannel;
 
   return (
     <View style={{flexGrow: 1}}>
@@ -47,5 +46,3 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   }
 })
-
-export default ChannelList

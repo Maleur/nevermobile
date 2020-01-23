@@ -2,22 +2,26 @@ import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 import theme from '../../../assets/styles/theme.style'
 
-const Badge = (props) => {
-  function badgeContent(props) {
-    if (props.isSeen) {
+export const Badge = (props) => {
+  const { isSeen, isActive, unseenCount } = props;
+
+  function badgeContent() {
+    if (isSeen) {
       return (
         <View stye={styles.iconContainer}>
           <Image style={styles.seenIcon} source={require('../../../assets/icons/check-mark.png')} />
         </View>
       )
     }
-    return <Text style={styles.badgeText}> {props.unseenCount} </Text>
+    return <Text style={styles.badgeText}> {unseenCount} </Text>
   }
 
   return (
-    <View style={[styles.container, props.isActive && styles.containerActive]}>
-      <View style={[styles.badge, props.isSeen && styles.badgeSeen, props.isActive && styles.badgeActive]}>
-        {props.isActive && badgeContent(props)}
+    <View style={[styles.container, isActive && styles.containerActive]}>
+      <View style={[styles.badge, isSeen && styles.badgeSeen, isActive && styles.badgeActive]}>
+        {
+          isActive && badgeContent()
+        }
       </View>
     </View>
   )
@@ -70,5 +74,3 @@ const styles = StyleSheet.create({
     width: 10
   }
 });
-
-export default Badge

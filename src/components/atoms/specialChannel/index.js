@@ -1,17 +1,18 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native';
-import Badge from '../badge'
+import { Badge } from '../badge'
 import theme from '../../../assets/styles/theme.style'
 
-const SpecialChannel = (props) => {
+export const SpecialChannel = (props) => {
+  const { isSeen, isActive, unseenCount, uri, name } = props;
   return (
     <View style={styles.container}>
-      <Badge isSeen={props.isSeen} isActive={props.isActive} unseenCount={props.unseenCount} />
-      <View style={[styles.icon, props.isSeen && styles.iconSeen, props.isActive && styles.iconActive]}>
-        <Image style={styles.image} source={{uri: props.uri}}></Image>
+      <Badge isSeen={isSeen} isActive={isActive} unseenCount={unseenCount} />
+      <View style={[styles.icon, isSeen && styles.iconSeen, isActive && styles.iconActive]}>
+        <Image style={styles.image} source={{uri: uri}}></Image>
       </View>
       <View>
-        <Text style={styles.title}>{props.name}</Text>
+        <Text style={styles.title}>{name}</Text>
       </View>
     </View>
   )
@@ -57,5 +58,3 @@ const styles = StyleSheet.create({
     height: 26,
   }
 })
-
-export default SpecialChannel
